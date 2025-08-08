@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "sejuice_itemplus",
+  "version": "${version}",
+  "name": "SeJuiceItem+",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.sejuice.sejuice_itemplus.SejuiceItemPlusMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
