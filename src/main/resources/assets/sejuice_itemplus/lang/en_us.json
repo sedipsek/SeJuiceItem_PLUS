@@ -1,3 +1,9 @@
 {
-  "item.sejuice_itemplus.bandage": "Bandage"
+  "item.sejuice_itemplus.ramen": "Ramen",
+  "item.sejuice_itemplus.tuna_can": "Tuna Can",
+  "item.sejuice_itemplus.medicine_bottle": "Medicine Bottle",
+  "item.sejuice_itemplus.syringe": "Syringe",
+  "item.sejuice_itemplus.bandage": "Bandage",
+  "item.sejuice_itemplus.kitchen_knife": "Kitchen Knife",
+  "item.sejuice_itemplus.first_aid_kit": "First Aid Kit"
 }
