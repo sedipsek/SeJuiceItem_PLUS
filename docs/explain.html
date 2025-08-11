@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SeJuiceItem+ — 설치 & 적용 가이드</title>
+  <meta name="description" content="Minecraft(Java) Fabric 모드 SeJuiceItem+ 설치 및 적용(레시피 포함) 안내" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #0f1720;
+      --text: #e6eef8;
+      --muted: #a9b4c0;
+      --accent: #60a5fa;
+      --ok: #34d399;
+      --warn: #f59e0b;
+      --code: #0b1220;
+      --code-fg: #e6eef8;
+      --border: #1f2a37;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Apple SD Gothic Neo, "Malgun Gothic", Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 16px 64px; }
+    header { background: linear-gradient(180deg, rgba(96,165,250,.08), rgba(96,165,250,0)); padding: 28px 0 8px; margin-bottom: 12px; }
+    h1 { font-size: 32px; line-height: 1.2; margin: 0 0 6px; letter-spacing: .2px; }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+    .badge { display: inline-block; padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; color: var(--muted); margin-right: 6px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .grid { display: grid; gap: 12px; }
+    .grid-2 { grid-template-columns: 1fr; }
+    @media (min-width: 920px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    h2 { font-size: 22px; margin: 28px 0 10px; border-bottom: 1px dashed var(--border); padding-bottom: 6px; }
+    h3 { font-size: 18px; margin: 18px 0 8px; }
+    ol, ul { margin: 8px 0 16px 20px; }
+    li { margin: 6px 0; }
+    code, pre { font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    pre { background: var(--code); color: var(--code-fg); border: 1px solid var(--border); border-radius: 10px; padding: 12px; overflow: auto; position: relative; }
+    .copy { position: absolute; top: 8px; right: 8px; font-size: 12px; padding: 6px 10px; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+    .kbd { font-family: inherit; background: var(--panel); color: var(--text); border: 1px solid var(--border); padding: 2px 6px; border-radius: 6px; font-size: 12px; }
+    .filetree { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+    .tip { border-left: 3px solid var(--ok); padding: 10px 12px; background: rgba(52,211,153,.05); border-radius: 8px; }
+    .warn { border-left: 3px solid var(--warn); padding: 10px 12px; background: rgba(245,158,11,.06); border-radius: 8px; }
+    .muted { color: var(--muted); }
+    footer { margin-top: 36px; color: var(--muted); font-size: 13px; }
+  </style>
+  <style>
+    /* Light theme overrides (opt-in via data-theme="light") */
+    html[data-theme="light"]{
+      --bg:#f7fafc;
+      --panel:#ffffff;
+      --text:#0b0f14;
+      --muted:#475569;
+      --accent:#2563eb;
+      --ok:#059669;
+      --warn:#d97706;
+      --code:#f1f5f9;
+      --code-fg:#0b0f14;
+      --border:#e2e8f0;
+    }
+    .theme-toggle{position:fixed;top:12px;right:12px;z-index:1000;background:var(--panel);color:var(--text);border:1px solid var(--border);padding:8px 12px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+    .theme-toggle:hover{filter:brightness(0.98)}
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">Light mode</button>
+  <header>
+    <div class="container">
+      <div class="badge">Minecraft Java 1.21.2–1.21.8</div>
+      <div class="badge">Fabric Loader 0.17.x+</div>
+      <div class="badge">Java 21</div>
+      <h1>SeJuiceItem+ 설치 & 적용 가이드</h1>
+      <div class="sub">라면/참치캔/약품류/구급 아이템 및 합성 레시피(마약성 진통제) 모드</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="panel">
+      <strong>바로가기</strong>
+      <ul>
+        <li><a href="#prereq">사전 준비</a></li>
+        <li><a href="#download">다운로드</a></li>
+        <li><a href="#install">설치</a></li>
+        <li><a href="#apply">적용 & 게임 내 확인</a></li>
+        <li><a href="#recipe">제작법: 마약성 진통제</a></li>
+        <li><a href="#trouble">문제 해결</a></li>
+        <li><a href="#dev">개발자 참고(선택)</a></li>
+        <li><a href="#files">파일 구조</a></li>
+      </ul>
+    </div>
+
+    <h2 id="prereq">사전 준비</h2>
+    <ul>
+      <li>Minecraft Java Edition <strong>1.21.2 ~ 1.21.8</strong></li>
+      <li><strong>Java 21</strong> (JDK/JRE)</li>
+      <li><strong>Fabric Loader 0.17.x+</strong> 설치</li>
+      <li><strong>Fabric API</strong> (해당 버전용)</li>
+    </ul>
+
+    <h2 id="download">다운로드</h2>
+    <ol>
+      <li>Fabric Loader 설치 프로그램을 내려받아 대상 프로필(1.21.8 등)에 설치합니다.</li>
+      <li>Fabric API <span class="muted">(mods 파일)</span>를 내려받습니다.</li>
+      <li><strong>SeJuiceItem+</strong> 모드 <code>.jar</code> (GitHub Releases) 를 내려받습니다.</li>
+    </ol>
+    <div class="tip">Fabric API는 <em>mods</em> 폴더에 같이 넣어야 합니다. 로더만 설치하고 API를 누락하면 모드가 동작하지 않습니다.</div>
+
+    <h2 id="install">설치</h2>
+    <ol>
+      <li>런처에서 <strong>Fabric</strong> 프로필(대상 버전)로 한 번 실행하여 폴더 구조를 생성합니다.</li>
+      <li><strong>mods 폴더</strong> 위치로 이동:
+        <ul>
+          <li>Windows: <code>%APPDATA%/.minecraft/mods</code></li>
+          <li>macOS: <code>~/Library/Application Support/minecraft/mods</code></li>
+          <li>Linux: <code>~/.minecraft/mods</code></li>
+        </ul>
+      </li>
+      <li>다음 파일들을 <strong>mods</strong> 폴더에 복사합니다:
+        <ul>
+          <li><code>fabric-api-...jar</code></li>
+          <li><code>sejuice_itemplus-...jar</code> (본 모드)</li>
+        </ul>
+      </li>
+      <li>런처에서 Fabric 프로필로 게임을 실행합니다.</li>
+    </ol>
+
+    <h2 id="apply">적용 & 게임 내 확인</h2>
+    <p>모드가 정상 로드되면 <strong>크리에이티브 &rarr; 재료(Ingredients)</strong> 탭에서 아이템이 보입니다.</p>
+    <div class="grid grid-2">
+      <div class="panel">
+        <h3>추가된 아이템 ID</h3>
+        <ul>
+          <li><code>sejuice_itemplus:ramen</code></li>
+          <li><code>sejuice_itemplus:tuna_can</code></li>
+          <li><code>sejuice_itemplus:medicine_bottle</code></li>
+          <li><code>sejuice_itemplus:syringe</code></li>
+          <li><code>sejuice_itemplus:bandage</code></li>
+          <li><code>sejuice_itemplus:kitchen_knife</code></li>
+          <li><code>sejuice_itemplus:first_aid_kit</code></li>
+          <li><code>sejuice_itemplus:blue_medicine</code></li>
+          <li><code>sejuice_itemplus:green_medicine</code></li>
+          <li><code>sejuice_itemplus:red_medicine</code></li>
+          <li><code>sejuice_itemplus:narcotic_analgesic</code> <span class="muted">(합성 결과)</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>명령어로 빠르게 확인</h3>
+        <pre><button class="copy" data-copy="#cmd1">Copy</button><code id="cmd1">/give @s sejuice_itemplus:blue_medicine
+/give @s sejuice_itemplus:green_medicine
+/give @s sejuice_itemplus:red_medicine
+/give @s sejuice_itemplus:narcotic_analgesic</code></pre>
+        <p class="muted">리소스 변경 후에는 <span class="kbd">F3+T</span>로 리로드하세요.</p>
+      </div>
+    </div>
+
+    <h2 id="recipe">제작법: 마약성 진통제</h2>
+    <p><strong>양귀비 + 파랑/초록/빨강 약</strong>을 <em>모양 제약 없이</em> 조합합니다(Shapeless).</p>
+    <div class="panel">
+      <h3>조합 재료</h3>
+      <ul>
+        <li><code>minecraft:poppy</code></li>
+        <li><code>sejuice_itemplus:blue_medicine</code></li>
+        <li><code>sejuice_itemplus:green_medicine</code></li>
+        <li><code>sejuice_itemplus:red_medicine</code></li>
+      </ul>
+      <p>결과: <code>sejuice_itemplus:narcotic_analgesic</code> ×1</p>
+    </div>
+    <div class="panel warn">
+      <strong>참고</strong>
+      <ul>
+        <li>이 모드의 약/효과는 <em>게임 내 가상 설정</em>입니다.</li>
+        <li>제작이 막히면 <code>/reload</code> 후 다시 시도하고, 로그의 <code>recipe</code> 경로와 ID 오타를 확인하세요.</li>
+      </ul>
+    </div>
+
+    <h2 id="trouble">문제 해결</h2>
+    <ul>
+      <li><strong>제작이 되지 않음</strong>: 데이터팩 경로가 <code>data/&lt;modid&gt;/recipe/...</code> (단수 <code>recipe</code>)인지, <code>result.id</code> 키를 썼는지 확인.</li>
+      <li><strong>아이템이 안 보임</strong>: Fabric API를 mods 폴더에 넣었는지, 모드 버전과 게임 버전이 일치하는지 확인.</li>
+      <li><strong>툴팁(설명) 안 뜸</strong>: 기존에 들고 있던 스택에는 적용되지 않을 수 있음. 새로 받거나 <code>/give</code>로 확인.</li>
+      <li><strong>리소스 반영 안 됨</strong>: <span class="kbd">F3+T</span> 리로드.</li>
+      <li><strong>콘솔 확인</strong>: <code>latest.log</code> 또는 런처 콘솔의 ERROR 라인을 확인.</li>
+    </ul>
+
+    <h2 id="dev">개발자 참고(선택)</h2>
+    <p>이 모드는 Minecraft 1.21.2+의 <strong>RegistryKey 사전 부여</strong> 패턴과 <strong>데이터 컴포넌트</strong>(LORE) 사용을 따릅니다.</p>
+    <pre><button class="copy" data-copy="#code1">Copy</button><code id="code1">// 등록 패턴(요지): RegistryKey → settings.registryKey(key) → Registry.register
+Identifier id = Identifier.of("sejuice_itemplus", name);
+RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
+Item item = factory.apply(new Item.Settings().registryKey(key));
+Registry.register(Registries.ITEM, key, item);
+
+// 레시피(1.21.2+): data/sejuice_itemplus/recipe/narcotic_analgesic.json
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:poppy",
+    "sejuice_itemplus:blue_medicine",
+    "sejuice_itemplus:green_medicine",
+    "sejuice_itemplus:red_medicine"
+  ],
+  "result": { "id": "sejuice_itemplus:narcotic_analgesic", "count": 1 }
+}</code></pre>
+
+    <h2 id="files">파일 구조</h2>
+    <div class="filetree"><pre>src/main/resources/
+├─ assets/sejuice_itemplus/
+│  ├─ lang/
+│  │  ├─ en_us.json
+│  │  └─ ko_kr.json
+│  ├─ models/item/
+│  │  ├─ ramen.json
+│  │  │  ...
+│  │  └─ narcotic_analgesic.json
+│  ├─ items/
+│  │  ├─ ramen.json
+│  │  │  ...
+│  │  └─ narcotic_analgesic.json
+│  └─ textures/item/
+│     ├─ ramen.png
+│     │  ...
+│     └─ narcotic_analgesic.png
+└─ data/sejuice_itemplus/
+   └─ recipe/
+      └─ narcotic_analgesic.json</pre></div>
+
+    <footer>
+      <p>© SeJuiceItem+ • 이 문서는 GitHub Pages 배포를 위해 작성되었습니다. 브랜드/이름은 Minecraft 및 Mojang과 무관합니다.</p>
+    </footer>
+  </main>
+
+  <script>
+    // Copy buttons
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sel = document.querySelector(btn.dataset.copy);
+        if (!sel) return;
+        const text = sel.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const old = btn.textContent; btn.textContent = 'Copied';
+          setTimeout(() => btn.textContent = old, 1200);
+        });
+      });
+    });
+  </script>
+  <script>
+    (function(){
+      var key = 'sejuice_theme';
+      var root = document.documentElement;
+      var saved = localStorage.getItem(key);
+      if (saved === 'light') { root.setAttribute('data-theme','light'); }
+      else if (saved === 'dark') { root.removeAttribute('data-theme'); }
+      function label(){
+        var isLight = root.getAttribute('data-theme') === 'light';
+        var btn = document.getElementById('themeToggle');
+        if (btn) btn.textContent = isLight ? 'Dark mode' : 'Light mode';
+      }
+      label();
+      var btn = document.getElementById('themeToggle');
+      if (btn) btn.addEventListener('click', function(){
+        var isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) { root.removeAttribute('data-theme'); localStorage.setItem(key,'dark'); }
+        else { root.setAttribute('data-theme','light'); localStorage.setItem(key,'light'); }
+        label();
+      });
+    })();
+  </script>
+</body>
+</html>
