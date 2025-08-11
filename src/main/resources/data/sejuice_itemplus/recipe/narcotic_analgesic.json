@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:poppy",
+    "sejuice_itemplus:blue_medicine",
+    "sejuice_itemplus:green_medicine",
+    "sejuice_itemplus:red_medicine"
+  ],
+  "result": { "id": "sejuice_itemplus:narcotic_analgesic", "count": 1 }
+}

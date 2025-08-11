@@ -8,5 +8,15 @@
   "item.sejuice_itemplus.first_aid_kit": "First Aid Kit",
   "item.sejuice_itemplus.blue_medicine": "very_tasty_medicine",
   "item.sejuice_itemplus.red_medicine": "gamumdosanjung",
-  "item.sejuice_itemplus.green_medicine": "pusidsanjung"
+  "item.sejuice_itemplus.green_medicine": "pusidsanjung",
+  "item.sejuice_itemplus.blue_medicine.tooltip.1": "Slight health & hunger recovery",
+  "item.sejuice_itemplus.blue_medicine.tooltip.2": "(Neomu-Masisseo Tablets)",
+  "item.sejuice_itemplus.green_medicine.tooltip.1": "Restores health",
+  "item.sejuice_itemplus.green_medicine.tooltip.2": "(Fused Sodium)",
+  "item.sejuice_itemplus.red_medicine.tooltip.1": "Reduces infection level",
+  "item.sejuice_itemplus.red_medicine.tooltip.2": "(Gamyeomdosan Pills)",
+  "item.sejuice_itemplus.narcotic_analgesic": "Narcotic Analgesic",
+  "item.sejuice_itemplus.narcotic_analgesic.tooltip.1": "Reduces infection & restores health",
+  "item.sejuice_itemplus.narcotic_analgesic.tooltip.2": "Side effect: Nausea"
 }
+
