@@ -21,6 +21,9 @@ public final class ModItems {
     public static final Item BANDAGE         = register("bandage",         Item::new, new Item.Settings());
     public static final Item KITCHEN_KNIFE   = register("kitchen_knife",   Item::new, new Item.Settings());
     public static final Item FIRST_AID_KIT   = register("first_aid_kit",   Item::new, new Item.Settings());
+    public static final Item BLUE_MEDICINE   = register("blue_medicine",   Item::new, new Item.Settings());
+    public static final Item RED_MEDICINE   = register("red_medicine",   Item::new, new Item.Settings());
+    public static final Item GREEN_MEDICINE   = register("green_medicine",   Item::new, new Item.Settings());
 
     // 1.21.2+ 필수 패턴: RegistryKey → settings.registryKey(key) → register
     private static Item register(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
@@ -42,6 +45,9 @@ public final class ModItems {
             entries.add(BANDAGE);
             entries.add(KITCHEN_KNIFE);
             entries.add(FIRST_AID_KIT);
+            entries.add(BLUE_MEDICINE);
+            entries.add(RED_MEDICINE);
+            entries.add(GREEN_MEDICINE);
         });
     }
 }

@@ -5,5 +5,8 @@
   "item.sejuice_itemplus.syringe": "주사기",
   "item.sejuice_itemplus.bandage": "붕대",
   "item.sejuice_itemplus.kitchen_knife": "식칼",
-  "item.sejuice_itemplus.first_aid_kit": "구급상자"
+  "item.sejuice_itemplus.first_aid_kit": "구급상자",
+  "item.sejuice_itemplus.blue_medicine": "너무마시써정",
+  "item.sejuice_itemplus.red_medicine": "가몀도산정",
+  "item.sejuice_itemplus.green_medicine": "퓨시드산나트륨"
 }
