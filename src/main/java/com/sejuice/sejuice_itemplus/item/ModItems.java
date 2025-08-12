@@ -3,6 +3,7 @@ package com.sejuice.sejuice_itemplus.item;
 import com.sejuice.sejuice_itemplus.SejuiceItemPlusMod;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;      // ★ 1.21.x 경로
 import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -18,14 +19,28 @@ import java.util.List;
 import java.util.function.Function;
 
 public final class ModItems {
-    // 모두 "그냥 아이템"
-    public static final Item RAMEN            = register("ramen",            Item::new, new Item.Settings());
-    public static final Item TUNA_CAN         = register("tuna_can",         Item::new, new Item.Settings());
-    public static final Item MEDICINE_BOTTLE  = register("medicine_bottle",  Item::new, new Item.Settings());
-    public static final Item SYRINGE          = register("syringe",          Item::new, new Item.Settings());
-    public static final Item BANDAGE          = register("bandage",          Item::new, new Item.Settings());
-    public static final Item KITCHEN_KNIFE    = register("kitchen_knife",    Item::new, new Item.Settings());
-    public static final Item FIRST_AID_KIT    = register("first_aid_kit",    Item::new, new Item.Settings());
+    // ── Food 설정 (라면=4칸=8, 참치=2.5칸=5) ───────────────────────────────
+    private static final FoodComponent FOOD_RAMEN = new FoodComponent.Builder()
+            .nutrition(8)            // 4칸
+            .saturationModifier(0.6F)
+            .build();
+
+    private static final FoodComponent FOOD_TUNA = new FoodComponent.Builder()
+            .nutrition(5)            // 2.5칸
+            .saturationModifier(0.4F)
+            .build();
+
+    // ── 아이템 등록 ─────────────────────────────────────────────────────
+    // 먹는 아이템
+    public static final Item RAMEN    = register("ramen",    Item::new, new Item.Settings().food(FOOD_RAMEN));
+    public static final Item TUNA_CAN = register("tuna_can", Item::new, new Item.Settings().food(FOOD_TUNA));
+
+    // 일반 아이템
+    public static final Item MEDICINE_BOTTLE = register("medicine_bottle", Item::new, new Item.Settings());
+    public static final Item SYRINGE         = register("syringe",         Item::new, new Item.Settings());
+    public static final Item BANDAGE         = register("bandage",         Item::new, new Item.Settings());
+    public static final Item KITCHEN_KNIFE   = register("kitchen_knife",   Item::new, new Item.Settings());
+    public static final Item FIRST_AID_KIT   = register("first_aid_kit",   Item::new, new Item.Settings());
 
     // [color]_medicine 3종: 기본 로어(툴팁)
     public static final Item BLUE_MEDICINE = register("blue_medicine", Item::new,
@@ -58,7 +73,7 @@ public final class ModItems {
             )
     );
 
-    // 마약성 진통제: "감염도 감소 및 피 회복" + "부작용: 어지러움"
+    // 마약성 진통제 (설명 2줄)
     public static final Item NARCOTIC_ANALGESIC = register("narcotic_analgesic", Item::new,
             new Item.Settings().component(
                     DataComponentTypes.LORE,
@@ -80,7 +95,7 @@ public final class ModItems {
     public static void registerModItems() {
         SejuiceItemPlusMod.LOGGER.info("Registering Mod Items for " + SejuiceItemPlusMod.MOD_ID);
 
-        // 전부 재료 탭(INGREDIENTS)에만 노출
+        // 전부 재료(INGREDIENTS) 탭에만 노출
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
             entries.add(RAMEN);
             entries.add(TUNA_CAN);

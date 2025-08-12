@@ -12,10 +12,9 @@ public class SejuiceItemPlusMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModItems.registerModItems(); // 아이템 Group(탭) 노출 등 트리거
+        ModItems.registerModItems(); // 아이템 등록 + 탭 노출
     }
 
-    // (선택) id 헬퍼
     public static Identifier id(String path) {
         return Identifier.of(MOD_ID, path);
     }
