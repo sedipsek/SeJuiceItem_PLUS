@@ -1,4 +1,5 @@
-<!doctype html>
+# Save the latest index.html (from canvas) to a downloadable file for the user.
+html = """<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -268,3 +269,7 @@ Registry.register(Registries.ITEM, key, item);
   </script>
 </body>
 </html>
+"""
+with open("/mnt/data/index.html", "w", encoding="utf-8") as f:
+    f.write(html)
+"/mnt/data/index.html"
