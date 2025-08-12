@@ -12,7 +12,7 @@ public class SejuiceItemPlusMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModItems.registerModItems(); // 아이템 등록 + 탭 노출
+        ModItems.registerModItems();
     }
 
     public static Identifier id(String path) {
